@@ -35,12 +35,12 @@
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">dov--nmr</parameter>
     <parameter key="mailer_transport">smtp</parameter>
-    <parameter key="mailer_host">127.0.0.1</parameter>
-    <parameter key="mailer_user">null</parameter>
-    <parameter key="mailer_password">null</parameter>
+    <parameter key="mailer_host">smtp.gmail.com</parameter>
+    <parameter key="mailer_user">FxGarantServer</parameter>
+    <parameter key="mailer_password">fx-gr-sr</parameter>
+    <parameter key="mailer_port">465</parameter>
     <parameter key="locale">en</parameter>
-    <parameter key="secret">9ece355fc12dfd8b249737498d25148198b1dd17</parameter>
-    <parameter key="database_path">null</parameter>
+    <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -82,7 +82,7 @@
     <parameter key="debug.stopwatch.class">Symfony\Component\HttpKernel\Debug\Stopwatch</parameter>
     <parameter key="debug.container.dump">/home/dovnmr/DnFOS/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\TraceableControllerResolver</parameter>
-    <parameter key="kernel.secret">9ece355fc12dfd8b249737498d25148198b1dd17</parameter>
+    <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="kernel.trusted_proxies" type="collection"/>
     <parameter key="kernel.trust_proxy_headers">false</parameter>
     <parameter key="kernel.default_locale">en</parameter>
@@ -329,12 +329,12 @@
     <parameter key="swiftmailer.plugin.antiflood.sleep">0</parameter>
     <parameter key="swiftmailer.data_collector.class">Symfony\Bridge\Swiftmailer\DataCollector\MessageDataCollector</parameter>
     <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
-    <parameter key="swiftmailer.transport.smtp.encryption">null</parameter>
-    <parameter key="swiftmailer.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.transport.smtp.host">127.0.0.1</parameter>
-    <parameter key="swiftmailer.transport.smtp.username">null</parameter>
-    <parameter key="swiftmailer.transport.smtp.password">null</parameter>
-    <parameter key="swiftmailer.transport.smtp.auth_mode">null</parameter>
+    <parameter key="swiftmailer.transport.smtp.encryption">ssl</parameter>
+    <parameter key="swiftmailer.transport.smtp.port">465</parameter>
+    <parameter key="swiftmailer.transport.smtp.host">smtp.gmail.com</parameter>
+    <parameter key="swiftmailer.transport.smtp.username">FxGarantServer</parameter>
+    <parameter key="swiftmailer.transport.smtp.password">fx-gr-sr</parameter>
+    <parameter key="swiftmailer.transport.smtp.auth_mode">login</parameter>
     <parameter key="swiftmailer.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.plugin.blackhole.class">Swift_Plugins_BlackholePlugin</parameter>
@@ -463,8 +463,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_513eb398a4567.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager513eb398a4567_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51400963aa72a.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51400963aa72a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -515,7 +515,7 @@
     <parameter key="fos_user.registration.confirmation.from_email" type="collection">
       <parameter key="webmaster@example.com">webmaster</parameter>
     </parameter>
-    <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
+    <parameter key="fos_user.registration.confirmation.enabled">true</parameter>
     <parameter key="fos_user.registration.form.type">fos_user_registration</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
@@ -1979,7 +1979,7 @@
     </service>
     <service id="form.csrf_provider" class="Symfony\Component\Form\Extension\Csrf\CsrfProvider\SessionCsrfProvider">
       <argument type="service" id="session"/>
-      <argument>9ece355fc12dfd8b249737498d25148198b1dd17</argument>
+      <argument>ThisTokenIsNotSoSecretChangeIt</argument>
     </service>
     <service id="form.type_extension.csrf" class="Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension">
       <tag name="form.type_extension" alias="form"/>
@@ -2349,7 +2349,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
-            <argument type="service" id="fos_user.user_provider.username"/>
+            <argument type="service" id="fos_user.user_provider.username_email"/>
             <argument type="service" id="security.user_checker"/>
             <argument>main</argument>
             <argument type="service" id="security.encoder_factory"/>
@@ -2358,7 +2358,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>513eb3988174a</argument>
+            <argument>5140096386bee</argument>
           </service>
         </argument>
       </argument>
@@ -2527,7 +2527,7 @@
           <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
             <argument type="service" id="security.context"/>
             <argument type="collection">
-              <argument type="service" id="fos_user.user_provider.username"/>
+              <argument type="service" id="fos_user.user_provider.username_email"/>
             </argument>
             <argument>main</argument>
             <argument type="service" id="monolog.logger.security"/>
@@ -2633,7 +2633,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>513eb3988174a</argument>
+            <argument>5140096386bee</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -3058,8 +3058,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager513eb398a4567_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_513eb398a4567.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51400963aa72a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51400963aa72a.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -3304,7 +3304,7 @@
       <argument type="service" id="security.authentication.session_strategy"/>
       <argument type="service" id="service_container"/>
     </service>
-    <service id="fos_user.user_provider.username" class="FOS\UserBundle\Security\UserProvider" public="false">
+    <service id="fos_user.user_provider.username_email" class="FOS\UserBundle\Security\EmailUserProvider" public="false">
       <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="fos_user.util.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
@@ -3603,22 +3603,22 @@
       </argument>
       <argument type="service" id="swiftmailer.transport.eventdispatcher"/>
       <call method="setHost">
-        <argument>127.0.0.1</argument>
+        <argument>smtp.gmail.com</argument>
       </call>
       <call method="setPort">
-        <argument>25</argument>
+        <argument>465</argument>
       </call>
       <call method="setEncryption">
-        <argument>null</argument>
+        <argument>ssl</argument>
       </call>
       <call method="setUsername">
-        <argument>null</argument>
+        <argument>FxGarantServer</argument>
       </call>
       <call method="setPassword">
-        <argument>null</argument>
+        <argument>fx-gr-sr</argument>
       </call>
       <call method="setAuthMode">
-        <argument>null</argument>
+        <argument>login</argument>
       </call>
       <call method="setTimeout">
         <argument>30</argument>
