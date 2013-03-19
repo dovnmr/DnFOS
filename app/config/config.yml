@@ -75,3 +75,5 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
+        form:
+            type: acme_user_registration

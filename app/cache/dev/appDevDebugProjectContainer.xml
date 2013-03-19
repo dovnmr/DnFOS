@@ -39,7 +39,7 @@
     <parameter key="mailer_user">FxGarantServer</parameter>
     <parameter key="mailer_password">fx-gr-sr</parameter>
     <parameter key="mailer_port">465</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">ru</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -85,7 +85,7 @@
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="kernel.trusted_proxies" type="collection"/>
     <parameter key="kernel.trust_proxy_headers">false</parameter>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">ru</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -463,8 +463,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51400963aa72a.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51400963aa72a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51449fd00b166.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51449fd00b166_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -516,7 +516,7 @@
       <parameter key="webmaster@example.com">webmaster</parameter>
     </parameter>
     <parameter key="fos_user.registration.confirmation.enabled">true</parameter>
-    <parameter key="fos_user.registration.form.type">fos_user_registration</parameter>
+    <parameter key="fos_user.registration.form.type">acme_user_registration</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
       <parameter>Registration</parameter>
@@ -604,7 +604,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>ru</argument>
       <argument type="service" id="router"/>
     </service>
     <service id="event_dispatcher" class="Symfony\Component\HttpKernel\Debug\ContainerAwareTraceableEventDispatcher">
@@ -1299,6 +1299,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>/home/dovnmr/DnFOS/src/Acme/UserBundle/Resources/translations/FOSUserBundle.ru.yml</argument>
+        <argument>ru</argument>
+        <argument>FOSUserBundle</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>/home/dovnmr/DnFOS/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.nl.yml</argument>
         <argument>nl</argument>
         <argument>FOSUserBundle</argument>
@@ -1853,6 +1859,7 @@
               <argument key="timezone">form.type.timezone</argument>
               <argument key="url">form.type.url</argument>
               <argument key="entity">form.type.entity</argument>
+              <argument key="acme_user_registration">acme_user.registration.form.type</argument>
               <argument key="fos_user_username">fos_user.username_form_type</argument>
               <argument key="fos_user_profile">fos_user.profile.form.type</argument>
               <argument key="fos_user_registration">fos_user.registration.form.type</argument>
@@ -2358,7 +2365,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5140096386bee</argument>
+            <argument>51449fcfdc02f</argument>
           </service>
         </argument>
       </argument>
@@ -2633,7 +2640,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5140096386bee</argument>
+            <argument>51449fcfdc02f</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -3058,8 +3065,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager51400963aa72a_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51400963aa72a.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51449fd00b166_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/home/dovnmr/DnFOS/app/cache/dev/jms_diextra/doctrine/EntityManager_51449fd00b166.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -3294,6 +3301,10 @@
         </argument>
       </call>
     </service>
+    <service id="acme_user.registration.form.type" class="Acme\UserBundle\Form\Type\RegistrationFormType">
+      <tag name="form.type" alias="acme_user_registration"/>
+      <argument>Acme\UserBundle\Entity\User</argument>
+    </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\Security\InteractiveLoginListener">
       <tag name="kernel.event_listener" event="security.interactive_login" method="onSecurityInteractiveLogin"/>
       <argument type="service" id="fos_user.user_manager"/>
@@ -3335,7 +3346,7 @@
     </service>
     <service id="fos_user.registration.form" class="Symfony\Component\Form\Form" factory-method="createNamed" factory-service="form.factory">
       <argument>fos_user_registration_form</argument>
-      <argument>fos_user_registration</argument>
+      <argument>acme_user_registration</argument>
       <argument>null</argument>
       <argument type="collection">
         <argument key="validation_groups" type="collection">

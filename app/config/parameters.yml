@@ -16,5 +16,5 @@ parameters:
 #    mailer_password:   dov--nmr
 #    mailer_port:       25
     
-    locale:            en
+    locale:            ru
     secret:            ThisTokenIsNotSoSecretChangeIt
